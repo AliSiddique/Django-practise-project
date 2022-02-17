@@ -1,0 +1,15 @@
+{% extends 'newone/base.html' %}
+{% block title%} create stuff{% endblock title%}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="max-w-lg mx-auto">
+    <form method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+
+        {{form|crispy}}
+
+<button type="submit" class="bg-indigo-500 p-3 rounded-lg text-white text-6 font-medium hover:opacity-70 transition duration-300">Create</button>
+    </form>
+    </div>
+    {% endblock content %}

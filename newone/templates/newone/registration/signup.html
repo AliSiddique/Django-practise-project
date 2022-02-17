@@ -1,0 +1,12 @@
+{% extends 'newone/base.html' %}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="max-w-lg mx-auto mt-10"> 
+<form method="POST" action="">
+     {% csrf_token %}
+     {{form|crispy}}
+    <button class="bg-indigo-500 p-5 " type="submit">Sign up</button>
+    </form>
+</div>
+{% endblock content %}

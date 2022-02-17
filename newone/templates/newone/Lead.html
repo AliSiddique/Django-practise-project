@@ -1,0 +1,28 @@
+{% extends 'newone/base.html' %}
+{% block title%}Ali is cool {% endblock title%}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+      {% if request.user.is_authenticated%}
+      <h1 class="text-center">Hi {{user.username}}</h1>
+      <h1 class="text-center">Name {{user.name}}</h1>
+      <h1 class="text-center">Is organiser {{user.is_organiser}}</h1>
+      <h1 class="text-center">Email: {{user.email}}</h1>
+
+<a class=" text-lg text-indigo-500" href="{% url 'create' %}">Create a lead</a>
+
+      {% else %}
+      <h1>HI random</h1>
+      {% endif%}
+    {% for lead in Leads%}
+    <div class="inline-flex flex-wrap"> 
+      <a class="p-11 m-5  bg-indigo-500 rounded-lg text-white font-bold  " href="{% url 'detail' lead.pk%}">{{lead}}</a>
+
+    </div>
+    
+{% empty %}
+<p>No leads</p>
+    {% endfor %}
+    {% endblock content %}
+    

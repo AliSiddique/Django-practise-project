@@ -1,0 +1,13 @@
+{% extends 'newone/base.html' %}
+{% load tailwind_filters %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class=" p-9 bg-indigo-400 text-white">
+        
+        <img class="w-40 h-40 rounded-lg" src="{{ lead.image.url }}"/>
+
+    <h1>{{lead.name}}</h1>
+    <h4> Made by: {{user.username}}</h4>
+
+    </div>
+    {% endblock content %}
